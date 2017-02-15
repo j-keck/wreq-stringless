@@ -19,6 +19,7 @@ module Network.Wreq.StringLess.Session
     , options
     , put
     , delete
+    , customMethod
     -- ** Configurable verbs
     , getWith
     , postWith
@@ -26,6 +27,7 @@ module Network.Wreq.StringLess.Session
     , optionsWith
     , putWith
     , deleteWith
+    , customMethodWith
     -- * Extending a session
     , WreqS.seshRun
     ) where
@@ -80,5 +82,13 @@ delete :: StringLike s => WreqS.Session -> s -> IO (Wreq.Response LBS.ByteString
 delete sesh = WreqS.delete sesh . toString
 
 
+customMethod :: StringLike s => s -> WreqS.Session -> s -> IO (Wreq.Response LBS.ByteString)
+customMethod = flip customMethodWith Wreq.defaults
+
+
 deleteWith :: StringLike s => Wreq.Options -> WreqS.Session -> s -> IO (Wreq.Response LBS.ByteString)
 deleteWith opts sesh = WreqS.deleteWith opts sesh . toString
+
+
+customMethodWith :: StringLike s => s -> Wreq.Options -> WreqS.Session -> s -> IO (Wreq.Response LBS.ByteString)
+customMethodWith method opts sesh url = WreqS.customMethodWith (toString method) opts sesh (toString url)

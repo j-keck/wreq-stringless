@@ -1,5 +1,5 @@
 name:        wreq-stringless
-version:     0.4.1.0
+version:     0.5.0.0
 synopsis:    Simple wrapper to use wreq without Strings
 author:      Juergen Keck
 maintainer:  Juergen Keck <jhyphenkeck@gmail.com>
@@ -7,7 +7,7 @@ license:     MIT
 description: |
   This library wraps all functions from @Network.Wreq@ which expects a 'String'
   and replaces the 'String' Type with the "Network.Wreq.StringLess.StringLike" Type-Class.
-  
+
   Instances for "Network.Wreq.StringLess.StringLike" are given for:
 
     * "Data.Text"
@@ -25,23 +25,23 @@ description: |
   of @Network.Wreq@.
 
   The versions of this library correspond with the version of @wreq@.
-  
-  see <https://github.com/j-keck/wreq-stringless/examples> for examples.
 
-github:      j-keck/wreq-stringless  
+  see <https://github.com/j-keck/wreq-stringless/tree/master/examples> for examples.
+
+github:      j-keck/wreq-stringless
 category:    Web
 ghc-options: -Wall
 
-      
+
 extra-source-files:
   - README.md
   - stack.yaml
   - package.yaml
   - examples/*.hs
   - examples/package.yaml
-  - examples/stack.yaml  
+  - examples/stack.yaml
   - examples/wreq-stringless-examples.cabal
- 
+
 
 
 dependencies:
@@ -49,16 +49,16 @@ dependencies:
   - bytestring
   - text
   - utf8-string
-  - wreq == 0.4.1.0
+  - wreq == 0.5.0.0
 
-    
+
 library:
   source-dirs: src
   exposed-modules:
     - Network.Wreq.StringLess
     - Network.Wreq.StringLess.Cache
     - Network.Wreq.StringLess.Cache.Store
-    - Network.Wreq.StringLess.Lens  
+    - Network.Wreq.StringLess.Lens
     - Network.Wreq.StringLess.Session
     - Network.Wreq.StringLess.StringLike
-    - Network.Wreq.StringLess.Types    
+    - Network.Wreq.StringLess.Types

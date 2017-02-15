@@ -1,1 +1,9 @@
-resolver: lts-6.27
+flags: {}
+packages:
+- '.'
+
+# wreq-0.5.0.0 is currently not on stackage
+extra-deps:
+- wreq-0.5.0.0
+
+resolver: lts-8.0

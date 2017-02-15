@@ -51,7 +51,7 @@ module Network.Wreq.StringLess
     , Wreq.params
     , Wreq.cookie
     , Wreq.cookies
-    , Wreq.checkStatus
+    , Wreq.checkResponse
 
     -- ** Authentication
     -- $auth
