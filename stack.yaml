@@ -5,4 +5,4 @@ packages:
 resolver: lts-9.0
 
 extra-deps:
-  - wreq-0.5.1.0
+  - wreq-0.5.2.0

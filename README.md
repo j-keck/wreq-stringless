@@ -46,9 +46,4 @@ for all functions from [Network.Wreq](http://hackage.haskell.org/package/wreq) w
 * replace the import **Network.Wreq** with **Network.Wreq.StringLess**
 
 The versions of this library correspond with the version of **wreq**.
-So if you need **wreq-0.5.1.0** you add **wreq-stringless-0.5.1.0** as a dependency.
-
-If you use stack, add the following yaml snippet to your 'stack.yaml'
-
-    extra-deps:
-      - wreq-stringless-0.5.1.0
+So if you need **wreq-0.5.2.0** you add **wreq-stringless-0.5.2.0** as a dependency.

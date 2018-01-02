@@ -1,9 +1,11 @@
--- This file has been generated from package.yaml by hpack version 0.18.1.
+-- This file has been generated from package.yaml by hpack version 0.20.0.
 --
 -- see: https://github.com/sol/hpack
+--
+-- hash: fb64bec4108c0fda7ee95dc3b7458a61299a76546d9cfd3389a7e79e364ff1dd
 
 name:           wreq-stringless
-version:        0.5.1.0
+version:        0.5.2.0
 synopsis:       Simple wrapper to use wreq without Strings
 description:    This library wraps all functions from @Network.Wreq@ which expects a 'String'
                 and replaces the 'String' Type with the "Network.Wreq.StringLess.StringLike" Type-Class.
@@ -57,11 +59,11 @@ library
       src
   ghc-options: -Wall
   build-depends:
-      base >= 4.7 && < 5
+      base >=4.7 && <5
     , bytestring
     , text
     , utf8-string
-    , wreq == 0.5.1.0
+    , wreq ==0.5.2.0
   exposed-modules:
       Network.Wreq.StringLess
       Network.Wreq.StringLess.Cache
