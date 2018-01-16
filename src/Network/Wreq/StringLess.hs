@@ -2,7 +2,7 @@
 -- Use this module instead of @Network.Wreq@ to use string-like datatypes.
 --
 -- see https://hackage.haskell.org/package/wreq/docs/Network-Wreq.html
--- 
+--
 module Network.Wreq.StringLess
     (
     -- * HTTP verbs
@@ -32,9 +32,13 @@ module Network.Wreq.StringLess
     -- ** Custom Method
     , customMethod
     , customMethodWith
+    , customHistoriedMethod
+    , customHistoriedMethodWith
     -- ** Custom Payload Method
     , customPayloadMethod
     , customPayloadMethodWith
+    , customHistoriedPayloadMethod
+    , customHistoriedPayloadMethodWith
     -- * Incremental consumption of responses
     -- ** GET
     , foldGet
@@ -186,12 +190,28 @@ customMethodWith :: StringLike s => s -> Wreq.Options -> s -> IO (Wreq.Response 
 customMethodWith method opts url = Wreq.customMethodWith (toString method) opts (toString url)
 
 
+customHistoriedMethod :: StringLike s => s -> s -> IO (Wreq.HistoriedResponse LBS.ByteString)
+customHistoriedMethod method url = Wreq.customHistoriedMethod (toString method) (toString url)
+
+
+customHistoriedMethodWith :: StringLike s => s -> Wreq.Options -> s -> IO (Wreq.HistoriedResponse LBS.ByteString)
+customHistoriedMethodWith method opts url = Wreq.customHistoriedMethodWith (toString method) opts (toString url)
+
+
 customPayloadMethod :: StringLike s => Postable a => s -> s -> a -> IO (Wreq.Response LBS.ByteString)
 customPayloadMethod method url = Wreq.customPayloadMethod (toString method) (toString url)
 
 
 customPayloadMethodWith :: StringLike s => Postable a => s -> Options -> s -> a -> IO (Wreq.Response LBS.ByteString)
 customPayloadMethodWith method opts url = Wreq.customPayloadMethodWith (toString method) opts (toString url)
+
+
+customHistoriedPayloadMethod :: (Postable a, StringLike s) => s -> s -> a -> IO (Wreq.HistoriedResponse LBS.ByteString)
+customHistoriedPayloadMethod method url = Wreq.customHistoriedPayloadMethod (toString method) (toString url)
+
+
+customHistoriedPayloadMethodWith :: (Postable a, StringLike s) => s -> Wreq.Options -> s -> a -> IO (Wreq.HistoriedResponse LBS.ByteString)
+customHistoriedPayloadMethodWith method opts url = Wreq.customHistoriedPayloadMethodWith (toString method) opts (toString url)
 
 
 foldGet :: StringLike s => (a -> BS.ByteString -> IO a) -> a -> s -> IO a

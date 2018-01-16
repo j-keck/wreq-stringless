@@ -7,27 +7,42 @@ module Network.Wreq.StringLess.Session
     (
     -- * Session creation
       WreqS.Session
+    , WreqS.newSession
+    , WreqS.newAPISession
     , WreqS.withSession
     , WreqS.withAPISession
     -- ** More control-oriented session creation
+    , WreqS.newSessionControl
     , WreqS.withSessionWith
     , WreqS.withSessionControl
+    -- ** Get information about session state
+    , WreqS.getSessionCookieJar
     -- * HTTP verbs
+    -- ** GET
     , get
-    , post
-    , head_
-    , options
-    , put
-    , delete
-    , customMethod
-    -- ** Configurable verbs
     , getWith
+    -- ** POST
+    , post
     , postWith
+    -- ** HEAD
+    , head_
     , headWith
+    -- ** OPTIONS
+    , options
     , optionsWith
+    -- ** PUT
+    , put
     , putWith
+    -- ** DELTE
+    , delete
     , deleteWith
+    -- ** Custom Method
+    , customMethod
     , customMethodWith
+    -- ** Custom Payload Method
+    , customPayloadMethodWith
+    , customHistoriedMethodWith
+    , customHistoriedPayloadMethodWith
     -- * Extending a session
     , WreqS.seshRun
     ) where
@@ -37,7 +52,7 @@ import qualified Network.Wreq         as Wreq
 import qualified Network.Wreq.Session as WreqS
 import           Network.Wreq.Types
 import Network.Wreq.StringLess.StringLike
-    
+
 get :: StringLike s => WreqS.Session -> s -> IO (Wreq.Response LBS.ByteString)
 get sesh = WreqS.get sesh . toString
 
@@ -92,3 +107,15 @@ deleteWith opts sesh = WreqS.deleteWith opts sesh . toString
 
 customMethodWith :: StringLike s => s -> Wreq.Options -> WreqS.Session -> s -> IO (Wreq.Response LBS.ByteString)
 customMethodWith method opts sesh url = WreqS.customMethodWith (toString method) opts sesh (toString url)
+
+
+customHistoriedMethodWith :: StringLike s => s -> Options -> WreqS.Session -> s -> IO (Wreq.HistoriedResponse LBS.ByteString)
+customHistoriedMethodWith method opts sesh url = WreqS.customHistoriedMethodWith (toString method) opts sesh (toString url)
+
+
+customPayloadMethodWith :: (Postable a, StringLike s) => s -> Wreq.Options -> WreqS.Session -> s -> a -> IO (Wreq.Response LBS.ByteString)
+customPayloadMethodWith method opts sesh url = WreqS.customPayloadMethodWith (toString method) opts sesh (toString url)
+
+
+customHistoriedPayloadMethodWith :: (Postable a, StringLike s) => s -> Wreq.Options -> WreqS.Session -> s -> a -> IO (Wreq.HistoriedResponse LBS.ByteString)
+customHistoriedPayloadMethodWith method opts sesh url = WreqS.customHistoriedPayloadMethodWith (toString method) opts sesh (toString url)

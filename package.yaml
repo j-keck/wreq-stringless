@@ -1,5 +1,5 @@
 name:        wreq-stringless
-version:     0.5.9.0
+version:     0.5.9.1
 synopsis:    Simple wrapper to use wreq without Strings
 author:      Juergen Keck
 maintainer:  Juergen Keck <jhyphenkeck@gmail.com>
