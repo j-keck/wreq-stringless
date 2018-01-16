@@ -1,5 +1,5 @@
 name:        wreq-stringless
-version:     0.5.2.0
+version:     0.5.9.0
 synopsis:    Simple wrapper to use wreq without Strings
 author:      Juergen Keck
 maintainer:  Juergen Keck <jhyphenkeck@gmail.com>
@@ -24,7 +24,7 @@ description: |
   file with @wreq-stringless@ and import "Network.Wreq.StringLess" instead
   of @Network.Wreq@.
 
-  The versions of this library correspond with the version of @wreq@.
+  The '0.5.9.x' version of this library wraps the '0.5.x.x' version of @wreq@.
 
   see <https://github.com/j-keck/wreq-stringless/tree/master/examples> for examples.
 
@@ -49,7 +49,7 @@ dependencies:
   - bytestring
   - text
   - utf8-string
-  - wreq == 0.5.2.0
+  - wreq == 0.5.*
 
 
 library:

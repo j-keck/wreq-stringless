@@ -2,7 +2,4 @@ flags: {}
 packages:
 - '.'
 
-resolver: lts-9.0
-
-extra-deps:
-  - wreq-0.5.2.0
+resolver: lts-10.3

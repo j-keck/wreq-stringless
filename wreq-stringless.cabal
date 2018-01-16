@@ -2,10 +2,10 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: fb64bec4108c0fda7ee95dc3b7458a61299a76546d9cfd3389a7e79e364ff1dd
+-- hash: 91742300b6c188de71565e1578a847b0fc2221d801fdf72f834bd3f8a85e863f
 
 name:           wreq-stringless
-version:        0.5.2.0
+version:        0.5.9.0
 synopsis:       Simple wrapper to use wreq without Strings
 description:    This library wraps all functions from @Network.Wreq@ which expects a 'String'
                 and replaces the 'String' Type with the "Network.Wreq.StringLess.StringLike" Type-Class.
@@ -26,7 +26,7 @@ description:    This library wraps all functions from @Network.Wreq@ which expec
                 file with @wreq-stringless@ and import "Network.Wreq.StringLess" instead
                 of @Network.Wreq@.
                 .
-                The versions of this library correspond with the version of @wreq@.
+                The '0.5.9.x' version of this library wraps the '0.5.x.x' version of @wreq@.
                 .
                 see <https://github.com/j-keck/wreq-stringless/tree/master/examples> for examples.
 category:       Web
@@ -63,7 +63,7 @@ library
     , bytestring
     , text
     , utf8-string
-    , wreq ==0.5.2.0
+    , wreq ==0.5.*
   exposed-modules:
       Network.Wreq.StringLess
       Network.Wreq.StringLess.Cache
